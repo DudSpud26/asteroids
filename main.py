@@ -38,9 +38,17 @@ def main():
         for sprite in asteroids:
             if player.check_collision(sprite):
                 print("Game Over!")
+                sys.exit(0)
+            for shot in shots:
+                if shot.check_collision(sprite):
+                    # Remove the asteroid and bullet
+                    sprite.kill()
+                    shot.kill()
+                    # Optionally, you can add a score or explosion effect here
+                    print("Asteroid hit!")
                 # Handle collision (e.g., end game, reduce health, etc.)
                 # For now, just print a message
-                sys.exit(0)
+                
         
         
         pygame.display.flip()
