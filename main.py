@@ -30,7 +30,12 @@ def main():
         updatable.update(dt)
         for sprite in drawable:
             sprite.draw(screen)
-        
+        for sprite in asteroids:
+            if player.check_collision(sprite):
+                print("Game Over!")
+                # Handle collision (e.g., end game, reduce health, etc.)
+                # For now, just print a message
+                sys.exit(0)
         
         
         pygame.display.flip()
