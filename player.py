@@ -1,7 +1,7 @@
 import pygame
 from constants import *
 from circleshape import CircleShape
-from shot import Bullet
+from shot import Shot
 # Player class for the Asteroids game
 
 
@@ -50,6 +50,6 @@ class Player(CircleShape):
         if self.internal_timer > 0:
             return
         # Create a new bullet at the player's position
-        bullet = Bullet(self.position.x, self.position.y)
-        bullet.velocity = pygame.Vector2(0, 1).rotate(self.rotation) * PLAYER_SHOOT_SPEED
+        shot = Shot(self.position.x, self.position.y)
+        shot.velocity = pygame.Vector2(0, 1).rotate(self.rotation) * PLAYER_SHOOT_SPEED
         self.internal_timer = PLAYER_SHOOT_COOLDOWN
